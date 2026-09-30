@@ -10,40 +10,29 @@ Delete the example before you submit.
 
 
 
-## Example — delete this
+## CC-01 — "The search suggestions are behind everything"
 
-### CC-99 — "The cart total is wrong"
+**Reproduced:** Tried searching for several food itams but the suggestion list was behind the cat tabs
 
-**Reproduced:** Added 2 dosas at Rs. 60 each. The cart showed
-Rs. 119.99999 instead of Rs. 130. Happened every time, on any dish with
-a price ending in .50.
+**Cause:**The stacking value for all the tabs , (cat-tabs) ,.search-wrap are mismatched
 
-**Cause:** The total was being added up with plain floating point and
-never rounded, so 0.1 + 0.2 style errors showed up on screen. The
-rounding helper existed but this one place was not using it.
+**Fix:** Checked and experimented the values in the website and updated the new stacking rule
 
-**Fix:** Ran the total through the existing rounding helper instead of
-adding a new one, so every price on screen goes through the same path.
+**Checked:**Updated working and the suggestion box and search wraps
 
-**Checked:** Cart, checkout and the order screen all show Rs. 130 now.
-Prices without decimals still show without a trailing .00.
+**Time:** about 15 mins in identifying code and rule in the style.css
 
-**Time:** about 40 minutes, most of it working out that the cart and the
-order screen round in different places.
+## CC-02 — "Can't read anything in dark mode"
 
+**Reproduced:**Swtched to Dark Mode and checked the food tables of all and can't read the text there.
 
+**Cause:**The dish tabs' colour was fixed to dark only while it was supposed to be fixed only on the theme on the ink
 
-## CC-0X — "<the complaint, in short>"
+**Fix:** Changed the ink colour to be theme dependent [var(--ink)]
 
-**Reproduced:**
+**Checked:** hard refreshed and verified the dish tabs' colours
 
-**Cause:**
-
-**Fix:**
-
-**Checked:**
-
-**Time:**
+**Time:** about 15 mintues figuring out the bus , and checked it's function
 
 
 
