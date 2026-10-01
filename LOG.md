@@ -34,6 +34,17 @@ Delete the example before you submit.
 
 **Time:** about 15 mintues figuring out the bus , and checked it's function
 
+## CC-03 — "The menu is wider than my phone"
+
+**Reproduced:** Entered the mobile (320px) and moved to the tabs which were not completely visible
+
+**Cause:**The width of the cards were set to max content and getting into extended horizontal side
+
+**Fix:** fixed the width and cross checked the width % of others
+
+**Checked:** Chrcked after updating the code, the cards were correctly visible
+
+**Time:** about 30 mins in identifying code and rule in the style.css
 
 
 ## Could not fix
