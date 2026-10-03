@@ -94,6 +94,18 @@ Delete the example before you submit.
 
 **Time:** about 15 mins in identifying the stock release logic and testing the fix
 
+## CC-08 — "The expired coupon still works"
+
+**Reproduced:** Tried to apply FRESHERS24 and the coupon was getting accepted even though its expiry date had already passed.
+
+**Cause:** The coupon validation was checking the usage limit and other conditions, but condition of Expired at was not checked.
+
+**Fix:** Added a check to compare the coupon expiry time with the current time and reject the coupon if it has already expired.
+
+**Checked:** Tested the FRESHERS24 and it was rejected with an expiry message. 
+
+**Time:** about 20 mins in identifying the coupon validation logic and testing the fix
+
 
 ## Could not fix
 
