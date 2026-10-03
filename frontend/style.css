@@ -170,8 +170,11 @@ h1, h2, h3 { margin: 0; }
   background: var(--orange-soft);
   border-bottom: 1px solid var(--line);
   padding: 14px 0 0;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 100px;
+  left: 0; right: 0;
+  width: 100%;
+  box-sizing: border-box;
   z-index: 40;
 }
 
@@ -207,8 +210,14 @@ h1, h2, h3 { margin: 0; }
   display: flex;
   gap: 6px;
   overflow-x: auto;
-  padding: 12px 16px 12px;
-  scrollbar-width: thin;
+
+  width: 100%;
+  max-width: 1140px;
+  box-sizing: border-box;
+
+  padding: 12px 16px;
+  margin: 0 auto;
+
   position: relative;
   z-index: 40;
   background: var(--orange-soft);
@@ -832,7 +841,7 @@ h1, h2, h3 { margin: 0; }
 
 .name-btn:hover { color: var(--orange); }
 
-#menu { position: relative; z-index: 2; }
+#menu { padding-top: 150px; position: relative; z-index: 2; }
 
 #scrollSentinel { height: 1px; }
 

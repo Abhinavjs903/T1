@@ -59,6 +59,18 @@ Delete the example before you submit.
 
 **Time:** about 45 mins in identifying the tablet-specific CSS block and invisible layer in the style.css
 
+## CC-05 — "The category bar scrolls away on my phone"
+
+**Reproduced:** Shifted into the phone dimensions and found that cat-tabs and filters were going up with the scroll
+
+**Cause:** the postition of filters file was set to relative and it depended and not fixed so it moved up with the scroll
+
+**Fix:** Adjusted the positioning and fixed it on the page then also managed further elements around it which was going hidden and provided a padding to it too
+
+**Checked:** Veridied cat- tabs and filters is moving constantly with screen and lined up with the top
+
+**Time:** 20 mins finding the bug and adjusting the proper elements
+
 
 ## Could not fix
 
