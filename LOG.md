@@ -42,9 +42,22 @@ Delete the example before you submit.
 
 **Fix:** fixed the width and cross checked the width % of others
 
-**Checked:** Chrcked after updating the code, the cards were correctly visible
+**Checked:** Checked after updating the code, the cards were correctly visible
 
 **Time:** about 30 mins in identifying code and rule in the style.css
+
+
+## CC-04 — "The buttons don't work on my tablet"
+
+**Reproduced:** Entered the tablet width range (761–900px) where the Add to Cart and star buttons were not working, while they worked on other screen sizes.
+
+**Cause:** An invisible layer created by the tablet-specific CSS was covering the buttons and blocking the click events.
+
+**Fix:** Added pointer-events: none to the invisible layer so that it does not block clicks on the buttons.
+
+**Checked:** Checked the buttons again after updating the CSS. Add to Cart and star buttons were working correctly on the tablet dimensions.
+
+**Time:** about 45 mins in identifying the tablet-specific CSS block and invisible layer in the style.css
 
 
 ## Could not fix
