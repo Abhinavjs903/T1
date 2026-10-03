@@ -83,6 +83,17 @@ Delete the example before you submit.
 
 **Time:** about 20 mins in identifying the validation logic and testing the fix
 
+## CC-07 — "Cancelling makes stock worse"
+
+**Reproduced:** Placed an order and then cancelled it. The stock decreased after placing the order, but after cancellation it decreased again instead of returning to the original value.
+
+**Cause:** The `releaseStock()` function was subtracting the cancelled quantity from the current stock instead of adding it back. it should be ' 'and not '-'
+**Fix:** Changed the stock calculation from subtracting the quantity to adding the quantity back when an order is cancelled.
+
+**Checked:** Checked the stock before placing the order, after placing the order, and after cancelling it. The stock returned to the original value after cancellation.
+
+**Time:** about 15 mins in identifying the stock release logic and testing the fix
+
 
 ## Could not fix
 
