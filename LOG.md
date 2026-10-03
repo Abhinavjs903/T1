@@ -71,6 +71,18 @@ Delete the example before you submit.
 
 **Time:** 20 mins finding the bug and adjusting the proper elements
 
+## CC-06 — "I ordered more than they had"
+
+**Reproduced:** Tried to place an order with a quantity greater than the available stock. The order was successfully placed.
+
+**Cause:** The condition was not checking whether the requested quantity was greater than the available stock.
+
+**Fix:** Added a stock quantity validation so the order is rejected when the requested quantity is greater than the available stock.
+
+**Checked:** Tested with a quantity greater than the available stock and the order was rejected with an invalid order message. Also tested with a valid quantity and the order was placed successfully.
+
+**Time:** about 20 mins in identifying the validation logic and testing the fix
+
 
 ## Could not fix
 
