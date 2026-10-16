@@ -76,18 +76,29 @@ function suggest(menu, query, limit = 6) {
 }
 
 const SORTERS = {
-  'price-asc': (a, b) => b.price - a.price,
-  'price-desc': (a, b) => a.price - b.price,
+  'price-asc': (a, b) => Number(a.price) - Number(b.price),
+  'price-desc': (a, b) => Number(b.price) - Number(a.price),
   'rating-desc': (a, b) => b.rating - a.rating,
   'name-asc': (a, b) => a.name.localeCompare(b.name),
   'prep-asc': (a, b) => a.prepMinutes - b.prepMinutes,
   popular: (a, b) => (b.orderCount || 0) - (a.orderCount || 0),
-  default: (a, b) => Number(b.orderable) - Number(a.orderable) || a.id - b.id,
+  default: (a, b) =>
+    Number(b.orderable) - Number(a.orderable) || a.id - b.id,
 };
 
 function sortDishes(dishes, sort) {
   const fn = SORTERS[sort] || SORTERS.default;
-  return dishes.slice().sort(fn);
+  const result = dishes.slice().sort(fn);
+
+  if (sort === 'price-asc' || sort === 'price-desc') {
+    console.log('Sort mode:', sort);
+    console.log(
+      'Prices:',
+      result.map(d => `${d.name}: ${d.price}`).slice(0, 15)
+    );
+  }
+
+  return result;
 }
 
 /** Cut a list into one page and say whether there is another. */
@@ -98,7 +109,7 @@ function paginate(list, page = 1, limit = 12) {
   const items = list.slice(start, start + perPage);
 
   return {
-    items: list,
+    items,
     page: pageNum,
     limit: perPage,
     total: list.length,

@@ -106,6 +106,30 @@ Delete the example before you submit.
 
 **Time:** about 20 mins in identifying the coupon validation logic and testing the fix
 
+## CC-09 — "The menu shows more dishes than it should"
+
+**Reproduced:** Opened the menu page and observed that more dishes were displayed than the listed size. 
+
+**Cause:** The function in search.js returned the complete dish list instead of only the items for the requested page. 
+
+**Fix:** Updated the pagination return value to use the sliced items array. Adjusted the configuration in menu.js so additional dishes load when the sentinel approaches the viewport.
+
+**Checked:** Tested menu and verified that the response contains 5 dishes, Refreshed the menu page and verified that the next dishes load automatically on scrolling.
+
+**Time:** 45 min
+
+## CC-10 — "Price sorting is not working correctly"
+
+**Reproduced:** Selected the price sorting options on the menu page and checked whether dishes appeared in the expected order.
+
+**Cause:** The price sorting comparators for ascending and descending order were reversed in `backend/logic/search.js`.
+
+**Fix:** Corrected the `price-asc` comparator to sort from low to high and the `price-desc` comparator to sort from high to low.
+
+**Checked:** Verify both sorting options and confirm the displayed dish prices are in the correct order.
+
+**Time:** 30 mins
+
 
 ## Could not fix
 

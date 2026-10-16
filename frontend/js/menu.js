@@ -56,7 +56,7 @@ async function loadMenu({ append = false } = {}) {
   } catch (err) {
     if (err.cancelled || myRequest !== menuRequestId) return;
 
-    menuGrid.innerHTML = '';
+    menuGrid.innerHTML = state.dishes.map(dishCard).join('');
     showStatus(menuStatus, errorBlock(err, 'menuRetry'));
     const retry = $('#menuRetry');
     if (retry) retry.addEventListener('click', () => loadMenu());
@@ -367,22 +367,26 @@ loadMoreBtn.addEventListener('click', () => {
 
 /* --------------------------------------------------- infinite scroll */
 
-// The button still works; this just saves the person a click.
+
 if ('IntersectionObserver' in window && sentinel) {
   const observer = new IntersectionObserver(
     (entries) => {
-      const visible = entries.some((entry) => entry.isIntersecting);
-      if (!visible) return;
+      if (!entries.some((entry) => entry.isIntersecting)) return;
       if (state.route !== 'menu' || !state.hasMore || loadMoreBtn.disabled) return;
 
       state.page += 1;
       loadMenu({ append: true });
     },
-    { rootMargin: '300px' }
+    {
+      root: null,
+      rootMargin: '0px 0px 200px 0px',
+      threshold: 0,
+    }
   );
 
   observer.observe(sentinel);
 }
+
 
 // the cart can change from the cart panel, so keep the grid in step
 on('cart', ({ dishId, cleared }) => {
